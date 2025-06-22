@@ -46,7 +46,7 @@ const FaceDetection: React.FC<FaceDetectionProps> = ({ onWarning }) => {
         setIsDetecting(true);
       } catch (error) {
         console.error('Error accessing webcam:', error);
-        onWarning('无法访问摄像头，请确保摄像头已连接并授予访问权限');
+        onWarning('Cannot access camera. Please ensure camera is connected and access is granted');
       }
     };
 
@@ -90,10 +90,10 @@ const FaceDetection: React.FC<FaceDetectionProps> = ({ onWarning }) => {
       if (detections.length === 0) {
         if (faceVisible) {
           setFaceVisible(false);
-          onWarning('未检测到面部，请确保面部在摄像头范围内');
+          onWarning('No face detected. Please ensure your face is within camera range');
         }
       } else if (detections.length > 1) {
-        onWarning('检测到多个面部，请确保只有一个人在摄像头范围内');
+        onWarning('Multiple faces detected. Please ensure only one person is in camera range');
       } else {
         setFaceVisible(true);
         
@@ -115,7 +115,7 @@ const FaceDetection: React.FC<FaceDetectionProps> = ({ onWarning }) => {
 
   return (
     <div className="face-detection">
-      <h3>面部检测 {modelsLoaded ? '(已加载)' : '(加载中...)'}</h3>
+      <h3>Face Detection {modelsLoaded ? '(Loaded)' : '(Loading...)'}</h3>
       <div className="video-container">
         <video
           ref={videoRef}
@@ -132,7 +132,7 @@ const FaceDetection: React.FC<FaceDetectionProps> = ({ onWarning }) => {
       </div>
       <div className="status">
         <div className={`status-indicator ${faceVisible ? 'status-active' : 'status-warning'}`}></div>
-        <span>{faceVisible ? '面部可见' : '未检测到面部'}</span>
+        <span>{faceVisible ? 'Face Visible' : 'No Face Detected'}</span>
       </div>
     </div>
   );

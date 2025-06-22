@@ -15,7 +15,7 @@ const AttentionMonitor: React.FC<AttentionMonitorProps> = ({ onWarning }) => {
   useEffect(() => {
     const handleVisibilityChange = () => {
       if (document.hidden) {
-        onWarning('切换到其他窗口或标签页');
+        onWarning('Switched to another window or tab');
         setIsActive(false);
       } else {
         setIsActive(true);
@@ -74,7 +74,7 @@ const AttentionMonitor: React.FC<AttentionMonitorProps> = ({ onWarning }) => {
       
       if (timeSinceLastActive > inactivityThreshold) {
         setIsActive(false);
-        onWarning('检测到长时间无活动');
+        onWarning('Long period of inactivity detected');
       }
     }, 5000);
     
@@ -94,13 +94,13 @@ const AttentionMonitor: React.FC<AttentionMonitorProps> = ({ onWarning }) => {
   
   return (
     <div className="attention-monitor">
-      <h3>注意力监控</h3>
+      <h3>Attention Monitoring</h3>
       <div className="status">
         <div className={`status-indicator ${isActive ? 'status-active' : 'status-warning'}`}></div>
-        <span>{isActive ? '活跃中' : '可能分心'}</span>
+        <span>{isActive ? 'Active' : 'Potentially Distracted'}</span>
       </div>
       <div className="last-active">
-        上次活跃: {lastActive.toLocaleTimeString()}
+        Last Active: {lastActive.toLocaleTimeString()}
       </div>
     </div>
   );

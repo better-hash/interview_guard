@@ -1,5 +1,85 @@
 # Interview Guard
 
+Interview monitoring system - A small application for monitoring the attention of interview candidates
+
+## Features
+
+- **Face Detection**: Uses the camera to detect if the candidate's face is in the frame
+- **Attention Monitoring**: Detects if the user has switched windows or has been inactive for a long time
+- **Warning Records**: Records all possible distractions
+- **Real-time Feedback**: Provides real-time visual feedback
+
+## Tech Stack
+
+- TypeScript
+- React
+- Vite
+- face-api.js (for face detection)
+
+## Installation and Running
+
+1. Clone the repository
+```bash
+git clone <repository-url>
+cd interview_guard
+```
+
+2. Install dependencies
+```bash
+npm install
+```
+
+3. Run the development server
+```bash
+npm run dev
+```
+
+4. Open in browser [http://localhost:5173](http://localhost:5173)
+
+## Usage
+
+1. Click the "Start Monitoring" button to start interview monitoring
+2. Make sure camera permissions are granted
+3. The system will automatically detect:
+   - Whether the face is in the frame
+   - Whether you've switched to other windows
+   - Whether there has been a long period of inactivity
+4. All warnings will be recorded at the bottom of the page
+5. Click "Stop Monitoring" to end the session
+
+## Notes
+
+- Camera permission required
+- Best used in modern browsers such as Chrome or Edge
+- Face detection requires sufficient lighting conditions
+
+## Development
+
+### Project Structure
+
+```
+interview_guard/
+├── public/
+│   └── models/           # Face detection model files
+├── src/
+│   ├── components/       # React components
+│   │   ├── FaceDetection.tsx
+│   │   └── AttentionMonitor.tsx
+│   ├── hooks/            # Custom React Hooks
+│   │   └── usePageVisibility.ts
+│   ├── App.tsx           # Main application component
+│   └── main.tsx          # Application entry
+└── package.json
+```
+
+## License
+
+MIT
+
+---
+
+# Interview Guard (中文版)
+
 面试监控系统 - 一个用于监控面试候选人注意力的小型应用
 
 ## 功能

@@ -24,13 +24,13 @@ function App() {
   
   return (
     <div className="container">
-      <h1>面试监控系统</h1>
+      <h1>Interview Monitoring System</h1>
       
       <div className="controls">
         {!isMonitoring ? (
-          <button className="start-button" onClick={startMonitoring}>开始监控</button>
+          <button className="start-button" onClick={startMonitoring}>Start Monitoring</button>
         ) : (
-          <button className="stop-button" onClick={stopMonitoring}>停止监控</button>
+          <button className="stop-button" onClick={stopMonitoring}>Stop Monitoring</button>
         )}
       </div>
       
@@ -43,7 +43,7 @@ function App() {
       
       {warnings.length > 0 && (
         <div className="warnings">
-          <h2>警告记录</h2>
+          <h2>Warning Records</h2>
           <ul>
             {warnings.map((warning, index) => (
               <li key={index}>{warning}</li>
@@ -54,7 +54,7 @@ function App() {
       
       {sessionStartTime && isMonitoring && (
         <div className="session-info">
-          开始时间: {sessionStartTime.toLocaleString()}
+          Start Time: {sessionStartTime.toLocaleString()}
         </div>
       )}
     </div>
